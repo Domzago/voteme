@@ -1,0 +1,19 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <br>
+    <div class="text-center mb-3">
+        {% for question in questions %}
+          <div class="card mb-3">
+            <div class="card-body mb-3">
+                <h1 class="lead">{{question}}</h1>
+                <a href="{% url 'core:detail' question.id %}" class="btn btn-sm btn-primary">Vote</a>
+                <a href="{% url 'core:results' question.id %}" class="btn btn-sm btn-secondary">Results</a>
+            </div>
+          </div>  
+        {% endfor %}
+
+    </div>
+{% endblock %}
